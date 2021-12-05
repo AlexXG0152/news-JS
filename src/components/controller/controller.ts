@@ -1,7 +1,8 @@
+import { IApiData } from '../view/appView';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    getSources(callback): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -10,9 +11,9 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: Event, callback) {
+        let target = <HTMLElement>e.target;
+        const newsContainer = <HTMLElement>e.currentTarget;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
@@ -31,7 +32,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = <HTMLElement>target.parentNode;
         }
     }
 }

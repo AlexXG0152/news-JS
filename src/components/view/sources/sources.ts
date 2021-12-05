@@ -1,17 +1,17 @@
 import './sources.css';
 
-export interface ISource {
-    readonly id: string | null;
-    readonly name: string | null;
-    readonly description: string | null;
-    readonly url: string | null;
-    readonly category: string | null;
-    readonly language: string | null;
-    readonly country: string | null;
+export interface DataSource {
+    id: string | null,
+    name: string | null,
+    description: string | null,
+    url: string | null,
+    category: string | null,
+    language: string | null,
+    country: string | null
 }
 
 class Sources {
-    draw(data: Array<ISource>): void {
+    draw(data: Array<DataSource>): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 

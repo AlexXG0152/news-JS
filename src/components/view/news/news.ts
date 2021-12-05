@@ -1,21 +1,22 @@
+import { IApiData } from '../appView';
 import './news.css';
 
-export interface INewsArticle {
-    readonly source: {
-        id: string | null;
-        name: string | null;
-    }
-    readonly author: string | null;
-    readonly title: string | null;
-    readonly description: string | null;
-    readonly url: string | null;
-    readonly urlToImage: string | null;
-    readonly publishedAt: Date | null;
-    readonly content: string | null;
+export interface DataNews {
+    source: {
+        id: string | null,
+        name: string | null,
+    },
+    author: string | null,
+    title: string | null,
+    description: string | null,
+    url: string | null,
+    urlToImage: string | null,
+    publishedAt: string | null,
+    content: string | null
 }
 
 class News {
-    draw(data) {
+    draw(data: Array<DataNews>): void {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment() as DocumentFragment;
