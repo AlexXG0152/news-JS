@@ -1,8 +1,10 @@
 import './news.css';
 
-export interface Article {
-    readonly sourceId: string | null;
-    readonly sourceName: string | null;
+export interface INewsArticle {
+    readonly source: {
+        id: string | null;
+        name: string | null;
+    }
     readonly author: string | null;
     readonly title: string | null;
     readonly description: string | null;
