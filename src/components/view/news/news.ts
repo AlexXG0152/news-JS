@@ -1,18 +1,18 @@
-import { IApiData } from '../appView';
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import './news.css';
 
 export interface DataNews {
     source: {
-        id: string | null,
-        name: string | null,
-    },
-    author: string | null,
-    title: string | null,
-    description: string | null,
-    url: string | null,
-    urlToImage: string | null,
-    publishedAt: string | null,
-    content: string | null
+        id: string | null;
+        name: string | null;
+    };
+    author: string | null;
+    title: string | null;
+    description: string | null;
+    url: string | null;
+    urlToImage: string | null;
+    publishedAt: string | null;
+    content: string | null;
 }
 
 class News {
@@ -23,7 +23,7 @@ class News {
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
         news.forEach((item, idx) => {
-            const newsClone = <HTMLTemplateElement>newsItemTemp.content.cloneNode(true) as HTMLTemplateElement;
+            const newsClone = (<HTMLTemplateElement>newsItemTemp.content.cloneNode(true)) as HTMLTemplateElement;
 
             if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
 

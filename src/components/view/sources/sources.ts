@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+import { alphabet } from './alpha';
 import './sources.css';
 
 export interface DataSource {
-    id: string | null,
-    name: string | null,
-    description: string | null,
-    url: string | null,
-    category: string | null,
-    language: string | null,
-    country: string | null
+    id: string | null;
+    name: string | null;
+    description: string | null;
+    url: string | null;
+    category: string | null;
+    language: string | null;
+    country: string | null;
 }
 
 class Sources {
@@ -17,7 +19,7 @@ class Sources {
 
         data.forEach((item): void => {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLTemplateElement;
-            
+
             sourceClone.querySelector('.source__item-name').textContent = item.name;
             sourceClone.querySelector('.source__item').setAttribute('data-source-id', item.id);
 
@@ -25,6 +27,7 @@ class Sources {
         });
 
         document.querySelector('.sources').append(fragment);
+        alphabet();
     }
 }
 

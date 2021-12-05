@@ -1,8 +1,10 @@
 import { IApiData } from '../view/appView';
 import AppLoader from './appLoader';
 
+type CallbackType<T> = (data: T) => void;
+
 class AppController extends AppLoader {
-    getSources(callback): void {
+    getSources(callback: CallbackType<IApiData>): void {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -11,7 +13,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback) {
+    getNews(e: Event, callback: CallbackType<IApiData>): void {
         let target = <HTMLElement>e.target;
         const newsContainer = <HTMLElement>e.currentTarget;
 
