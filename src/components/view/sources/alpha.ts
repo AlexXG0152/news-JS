@@ -8,3 +8,13 @@ export function alphabet() {
     //console.log(html);
     return html;
 }
+
+const cars = 'Saab,Volvo,BMW,GMC,Nissan,Ford'.split(',');
+let newElement: HTMLDivElement;
+cars.forEach((item, idx) => {
+    newElement = document.createElement('div');
+    newElement.id = item;
+    newElement.className = 'car';
+    newElement.innerHTML = cars[idx];
+    document.body.appendChild(newElement);
+});

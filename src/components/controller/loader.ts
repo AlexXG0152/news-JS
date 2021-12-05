@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { IApiData } from '../view/appView';
 
-export type Callback = <T>(data: T) => void;
-
+export type Callback = <T>(data?: T) => void;
 type CallbackType<T> = (data: T) => void;
 
 class Loader {
@@ -43,12 +42,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Callback, options: { [key: string]: string }) {
+    load(method: string, endpoint: string, callback: CallbackType<IApiData>, options: { [key: string]: string }) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((data: IApiData) => callback(data))
+            .catch((err: Error) => console.error(err));
     }
 }
 
