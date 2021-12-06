@@ -17,7 +17,10 @@ footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +35,8 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+.custom {
+    filter:  brightness(0) invert(1);
+    height: 50px;
 }

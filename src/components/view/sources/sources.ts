@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import { alphabet } from './alpha';
+import { createAlphabet } from './alpha';
 import './sources.css';
 
 export interface DataSource {
@@ -27,7 +27,7 @@ class Sources {
         });
 
         document.querySelector('.sources').append(fragment);
-        alphabet();
+        createAlphabet();
     }
 }
 

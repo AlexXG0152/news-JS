@@ -25,7 +25,8 @@
     display: none;  /* Safari and Chrome */
 }
 
-.source__item {
+.source__item,
+.alphabet__item {
     background: none;
     border: 2px solid #30c5ff;
     font: inherit;
@@ -36,9 +37,14 @@
     transition: 0.25s;
     cursor: pointer;
 }
+.alphabet__item {
+    padding: 0.35em 0.7em;
+}
 
 .source__item:hover,
-.source__item:focus {
+.source__item:focus,
+.alphabet__item:hover,
+.alphabet__item:focus {
     border-color: #3fcc59;
     color: #69db7e;
     box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
@@ -48,4 +54,17 @@
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+}
+
+.alphabet{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items: flex-start;
+}
+
+button[alphabet-source-id="A"]:focus ~ div[class^="sources"] > div:not([data-source-id^="a"]) {
+    display:none;
 }
